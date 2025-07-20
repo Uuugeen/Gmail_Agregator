@@ -1,0 +1,150 @@
+/* Обнулюючі стилі */
+html, body, div, header, main, h1, h2, button, select, option {margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;box-sizing: border-box;}
+button {background: none;border: none;cursor: pointer;}
+select, option {background: none;border: none;outline: none;box-sizing: border}
+/* ====Кольори====*/
+:root {
+    --yellow:rgb(255, 255, 149);
+    --black:black;
+}
+/*====Style====*/
+
+body {
+    background-color: var(--yellow);
+    font-family: sans-serif;
+    position: relative;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    position: sticky;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.container {
+    width: 1100px;
+    padding: 0 1rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid var(--black);
+    padding: 0 0 1rem 0;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.message {
+    padding: 1rem 0.5rem;
+    border: 2px solid var(--black);
+    background-color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.336);
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttons button {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--black);
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.336) ;
+    transform: translateY(-3%);
+}
+
+.account-selector {
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.326);
+}
+
+.main-content {
+    padding: 3rem 2rem;
+
+}
+
+.main-content h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 1.5rem;
+}
+
+.email {
+    
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+
+.email-cards h3 {
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 0.5rem;
+}
+
+.email-cards {
+  max-width: 300px;
+  max-height: 500px;
+  background-color: white;
+  padding: 1rem;
+  border: 2px solid var(--black);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s,
+    background 0.3s,
+    transform 0.3s,
+    max-width 0.5s,
+    max-height 0.5s,
+    width 0.5s;
+  overflow: hidden;
+  position: relative;
+}
+
+.email-cards.expanded {
+  grid-column: 1 / -1;
+  max-width: 100%;
+  max-height: 1000px; /* достатньо для великого листа */
+  width: 100%;
+  min-height: 300px;
+  z-index: 2;
+  box-shadow: 0 0 30px rgba(0,0,0,0.18);
+  background: #f8f8ff;
+  transform: scale(1.02);
+}
+
+.email-cards iframe.email-body {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s, transform 0.4s;
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.email-cards.expanded iframe.email-body {
+  opacity: 1;
+  transform: translateY(0);
+}
